@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HolaMundo1</string>
+    <string name="primerSaludo">Bienvenido</string>
+    <string name="escribe">Escribe tu nombre</string>
+    <string name="pulsar">Enviar</string>
+    <string name="saludoRecoger">Saludo</string>
+    <string name="pulsarvolver">Pulsa para volver</string>
+</resources>
