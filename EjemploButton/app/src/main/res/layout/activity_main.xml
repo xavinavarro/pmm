@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <CheckBox
+        android:text="Baloncesto"
+        android:id="@+id/chkBoxBaloncesto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </CheckBox>
+    <CheckBox
+        android:text="Futbol"
+        android:id="@+id/chkBoxFutbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hockey"
+        android:id="@+id/chkBoxHockey"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Deporte"
+        android:id="@+id/btnHobby" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtHobby"
+        android:text="@string/opHobby"/>
+
+
+
+</LinearLayout>
