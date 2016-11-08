@@ -7,10 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.mati.spinnertitular.Titular">
+    tools:context="com.example.mati.ejemplocanvas.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+
+    <item android:id="@+id/MnuOpc1" android:title="Opcion1"
+        android:icon="@drawable/tag"></item>
+    <item android:id="@+id/MnuOpc2" android:title="Opcion2"
+        android:icon="@drawable/filter"></item>
+    <item android:id="@+id/MnuOpc3" android:title="Opcion3"
+        android:icon="@drawable/chart"></item>
+
 </RelativeLayout>
