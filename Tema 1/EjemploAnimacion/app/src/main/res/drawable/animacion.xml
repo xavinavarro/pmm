@@ -3,8 +3,9 @@
 	<item android:drawable="@drawable/fotograma1"
 		android:duration="500" />	
 	<item android:drawable="@drawable/fotograma2"
-		android:duration="500" />	
+		android:duration="500" />
 	<item android:drawable="@drawable/fotograma3"
-		android:duration="500" />	
+		android:duration="500" />
+
 </animation-list>
 
