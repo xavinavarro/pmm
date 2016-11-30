@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spinnerCoches = (Spinner) findViewById(R.id.spinnerCoches);
-        buttonTotal = (Button) findViewById(R.id.button_total);
-        buttonFactura = (Button) findViewById(R.id.button_factura);
+        spinnerCoches = (Spinner) findViewById(R.id.spinner);
+        buttonTotal = (Button) findViewById(R.id.botontotal);
+        buttonFactura = (Button) findViewById(R.id.botonfactura);
         editText = (EditText) findViewById(R.id.editTextHoras);
         radioGroupSeguros = (RadioButton) findViewById(R.id.radioButton_STR);
         checkAireAc = (CheckBox) findViewById(R.id.check_aire);
