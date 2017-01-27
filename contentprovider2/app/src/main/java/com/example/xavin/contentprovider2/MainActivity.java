@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
                     do
                     {
-
                         usuario = cur.getString(colUsuario);
                         password = cur.getString(colPassword);
                         email = cur.getString(colEmail);
@@ -180,5 +179,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }
