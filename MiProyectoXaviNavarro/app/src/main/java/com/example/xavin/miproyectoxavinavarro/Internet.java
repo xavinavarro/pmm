@@ -31,7 +31,7 @@ public class Internet extends AppCompatActivity {
         mostrar = (Button) findViewById(R.id.boton1);
         resultado = (TextView) findViewById(R.id.texto1);
 
-        final String url = "www.google.es";
+        final String url = "www.game.es";
 
         mostrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
