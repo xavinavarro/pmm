@@ -31,7 +31,7 @@ public class Internet extends AppCompatActivity {
         mostrar = (Button) findViewById(R.id.boton1);
         resultado = (TextView) findViewById(R.id.texto1);
 
-        final String url = "http://www.elpais.com/rss/feed.html?feedId=1022";
+        final String url = "www.google.es";
 
         mostrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -119,9 +119,6 @@ public class Internet extends AppCompatActivity {
             return salida;
         }
 
-        /* protected void onProgressUpdate(String... pasos) {
-             resultado.append(pasos[0]);
-         }*/
         protected void onPostExecute(String sal){
             resultado.append(sal);
         }

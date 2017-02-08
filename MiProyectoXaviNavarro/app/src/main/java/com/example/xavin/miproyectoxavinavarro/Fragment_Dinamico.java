@@ -14,13 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Fragment_Dinamico.OnFragmentInteractionListener} interface
- * to handle interaction events.
- */
 public class Fragment_Dinamico extends Fragment {
 
     private OnFragmentInteractionListener mListener;
@@ -32,13 +25,12 @@ public class Fragment_Dinamico extends Fragment {
 
 
     public Fragment_Dinamico() {
-        // Required empty public constructor
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         View view =inflater.inflate(R.layout.fragment_fragment__dinamico, container, false);
 
@@ -80,12 +72,7 @@ public class Fragment_Dinamico extends Fragment {
 
                 activity=getActivity();
                 Toast.makeText(activity,"GRACIAS POR LA COMPRA",Toast.LENGTH_LONG).show();
-
-
                 layout.setVisibility(View.INVISIBLE);
-
-
-
 
             }
         });
