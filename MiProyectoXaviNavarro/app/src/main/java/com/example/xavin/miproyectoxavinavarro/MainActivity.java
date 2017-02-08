@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         final EditText verificar_usuario=(EditText)findViewById(R.id.verificar_usuario);
         final EditText verificar_contraseña=(EditText)findViewById(R.id.verificar_contraseña);
 
-        //Abrimos la base de datos en modo escritura
         cliBDh = new BDUsuarios(this, "Usuarios", null, 1);
 
         entrar.setOnClickListener(new View.OnClickListener() {
@@ -39,14 +38,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Cursor fila=bd.rawQuery("SELECT usuario,password FROM Usuarios WHERE usuario='"+usuario+"' and password='"+contraseña+"'",null);
 
-                //si el cursor tiene algun valor almacenado
                 if(fila.moveToFirst()) {
                     //capturamos los valores del cursos y lo almacenamos en variable
                     String usu = fila.getString(0);
                     String pass = fila.getString(1);
 
-
-                    //preguntamos si los datos ingresados son iguales
                     if (usuario.equals(usu)&&contraseña.equals(pass)) {
                         Intent adelante= new Intent(MainActivity.this,Pantalla_Aplicacion.class);
                         startActivity(adelante);
@@ -54,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                     }else {
                         //String mensaje="Error: usuario o contraseña incorrecta. Vuelva a intentarlo.";
                         Toast.makeText(getApplicationContext(),"completado",Toast.LENGTH_LONG).show();
-
                     }
                 }
             }
@@ -68,6 +63,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(ventana);
             }
         });
-
     }
 }
