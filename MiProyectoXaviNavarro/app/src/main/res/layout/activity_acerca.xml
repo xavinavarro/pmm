@@ -19,6 +19,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Creado por: Xavi Navarro"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="VERSION 1.1"
         />
 </LinearLayout>

@@ -9,8 +9,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@color/negro"
-    tools:context="com.example.xavin.miproyectoxavinavarro.Pantalla_Registro">
+    android:background="@color/azull"
+    tools:context="com.example.xavin.miproyectoxavinavarro.Pantalla_Registro"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,12 +19,13 @@
         android:textAlignment="center"
         android:textSize="80px"
         android:textColor="@color/amarillo"
-        android:text="REGISTRO" />
+        android:text="REGISTRATE"
+        android:layout_weight="0.24" />
 
     <TextView
-        android:text="USUARIO"
+        android:text="USER"
         android:layout_width="500px"
-        android:textColor="@color/rojo"
+        android:textColor="@color/verde"
         android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -33,24 +35,26 @@
     <EditText
         android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/azul"
-        android:textColor="@color/verde"
+        android:textColorHint="@color/colorAccent"
+        android:textColor="@color/colorAccent"
         android:textAlignment="center"
         android:layout_gravity="center"
 
         android:inputType="textPersonName"
-        android:hint="Usuario"
-        android:id="@+id/registro_usuario" />
+        android:hint="User"
+        android:id="@+id/registro_usuario"
+        android:layout_marginBottom="15dp" />
 
     <TextView
-        android:text="CONTRASEÑA"
+        android:text="PASSWORD"
         android:layout_width="500px"
-        android:textColor="@color/rojo"
+        android:textColor="@color/verde"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_gravity="center"
         android:layout_marginTop="10px"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        android:textStyle="normal|bold" />
 
     <EditText
         android:layout_width="500px"
@@ -58,20 +62,23 @@
         android:textAlignment="center"
         android:layout_gravity="center"
         android:hint="Contraseña"
-        android:textColorHint="@color/azul"
-        android:textColor="@color/verde"
+        android:textColorHint="@color/colorAccent"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
-        android:id="@+id/registro_contraseña" />
+        android:id="@+id/registro_contraseña"
+        android:layout_marginBottom="50dp" />
+
     <Button
         android:layout_width="wrap_content"
-        android:text="REGISTRARSE"
+        android:text="REGISTRAR"
         android:id="@+id/registro"
         android:layout_gravity="center"
         android:layout_height="wrap_content" />
+
     <Button
-        android:layout_width="wrap_content"
-        android:text="VOLVER"
-        android:id="@+id/volver_login"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content" />
+    android:layout_width="wrap_content"
+    android:text="VOLVER"
+    android:id="@+id/volver_login"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content" />
 </LinearLayout>

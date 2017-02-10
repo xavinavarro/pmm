@@ -45,25 +45,15 @@
 
         android:id="@+id/caja_xbox" />
 
-    <Button
-        android:text="COMPRAR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:id="@+id/boton_comprar"
-        android:layout_below="@+id/radiogroup"
-        android:layout_toEndOf="@+id/caja_xbox"
-        android:layout_marginTop="5dp" />
-
     <RadioGroup
         android:layout_width="wrap_content"
         android:id="@+id/radiogroup"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/caja_xbox"
-        android:layout_toEndOf="@+id/caja_play">
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
 
         <RadioButton
-            android:text="PAGO EN EFECTIVO"
+            android:text="PAGO EFECTIVO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/caja_play"
@@ -72,11 +62,20 @@
             android:id="@+id/pago_efectivo" />
 
         <RadioButton
-            android:text="PAGO CON TARJ. CRÉDITO"
+            android:text="PAGO CON TARJETA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/boton_comprar"
             android:layout_alignEnd="@+id/pago_efectivo"
             android:id="@+id/pago_tarjeta" />
     </RadioGroup>
+
+    <Button
+        android:text="COMPRAR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/boton_comprar"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/radiogroup"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,7 +27,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_Dinamico.OnFragmentInteractionListener {
+public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.OnFragmentInteractionListener {
 
     private Juegos[]listado;
     public ArrayList<Juegos> juegos= new ArrayList<Juegos>();
@@ -133,7 +132,7 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_D
 
                 FragmentManager fragmentmanager =getFragmentManager();
                 FragmentTransaction transaction =fragmentmanager.beginTransaction();
-                Fragment_Dinamico fragment= new Fragment_Dinamico();
+                FDinamico fragment= new FDinamico();
                 fragment.setArguments(objetos);
                 transaction.add(R.id.activity_pantalla__aplicacion,fragment);
                 transaction.commit();

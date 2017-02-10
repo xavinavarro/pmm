@@ -27,7 +27,6 @@ public class Internet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internet);
 
-
         mostrar = (Button) findViewById(R.id.boton1);
         resultado = (TextView) findViewById(R.id.texto1);
 
@@ -39,7 +38,6 @@ public class Internet extends AppCompatActivity {
                 new TareaHttpAsincrona().execute(url);
             }
         });
-
     }
 
     public  class TareaHttpAsincrona extends AsyncTask<String, String, String> {
@@ -56,7 +54,6 @@ public class Internet extends AppCompatActivity {
                         if (info[i].getState() == NetworkInfo.State.CONNECTED)
                             Toast.makeText(Internet.this, "Conexion a Internet exitosa", Toast.LENGTH_SHORT).show();
                     }
-
                 }
             }
             else
@@ -70,19 +67,16 @@ public class Internet extends AppCompatActivity {
         protected String doInBackground(String... params) {
 
             HttpURLConnection httpURLConnection = null;
-
             String salida = "";
 
             try {
                 URL url = new URL(params[0]);
-
                 httpURLConnection = (HttpURLConnection) url.openConnection();
 
                 httpURLConnection.setReadTimeout(10000);
                 httpURLConnection.setConnectTimeout(15000);
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.setDoInput(true);
-
                 httpURLConnection.connect();
 
                 if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -101,14 +95,11 @@ public class Internet extends AppCompatActivity {
                         }
                         linea = bufferedReader.readLine();
                     }
-
                     bufferedReader.close();
                     inputStream.close();
-
                 }
                 //  publishProgress(salida);
                 return(salida);
-
             }
             catch(Exception e){
                 salida= "ExcepciÃ³n: " + e.getMessage();
@@ -118,11 +109,9 @@ public class Internet extends AppCompatActivity {
             }
             return salida;
         }
-
         protected void onPostExecute(String sal){
             resultado.append(sal);
         }
-
     }
 }
 

@@ -1,7 +1,6 @@
 package com.example.xavin.miproyectoxavinavarro;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -9,12 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Fragment_Dinamico extends Fragment {
+public class FDinamico extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
@@ -23,13 +21,13 @@ public class Fragment_Dinamico extends Fragment {
     RelativeLayout layout;
     TextView titulo,genero,precio,caja,radio;
 
-    public Fragment_Dinamico() {
+    public FDinamico() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view =inflater.inflate(R.layout.fragment_fragment__dinamico, container, false);
+        View view =inflater.inflate(R.layout.f_dinamico, container, false);
 
         aceptar=(Button)view.findViewById(R.id.confirmar_compra);
         cancelar=(Button)view.findViewById(R.id.cancelar_compra);
@@ -61,25 +59,19 @@ public class Fragment_Dinamico extends Fragment {
         }
 
         radio.setText(this.getArguments().getString("grupo"));
-
-
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 activity=getActivity();
                 Toast.makeText(activity,"GRACIAS POR LA COMPRA",Toast.LENGTH_LONG).show();
                 layout.setVisibility(View.INVISIBLE);
-
             }
         });
 
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 layout.setVisibility(View.INVISIBLE);
-
             }
         });
         return view;
