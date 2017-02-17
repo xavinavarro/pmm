@@ -41,13 +41,13 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_D
         BDClients bdClients = new BDClients(this, "Usuarios", null, 1);
         SQLiteDatabase bd = bdClients.getWritableDatabase();
 
-        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Spiderman 3','aventuras','29.99')");
-        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('World Of Warcraft','RPG,aventuras','15.99')");
-        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Rocket League','Futbol, Coches, Conducción','11.99')");
-        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('DooM','Shooter','59.99')");
-        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Counter Strike: Global Offensive','Shooter','14.99')");
-        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Need for Speed','Conduccion','44.99')");
-        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Candy Crush','Entretenimiento','4.99')");
+        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Spiderman 3','aventuras','29.99')");
+        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('World Of Warcraft','RPG,aventuras','15.99')");
+        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Rocket League','Futbol, Coches, Conducción','11.99')");
+        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('DooM','Shooter','59.99')");
+        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Counter Strike: Global Offensive','Shooter','14.99')");
+        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Need for Speed','Conduccion','44.99')");
+        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Candy Crush','Entretenimiento','4.99')");
 
         Toast.makeText(getApplicationContext(),"completado",Toast.LENGTH_LONG).show();
 
@@ -93,9 +93,8 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_D
                 CheckBox cajapc=(CheckBox)findViewById(R.id.pc);
                 CheckBox cajaps=(CheckBox)findViewById(R.id.playstation);
                 CheckBox cajaxbox=(CheckBox)findViewById(R.id.xbox);
-                RadioButton efectivo=(RadioButton)findViewById(R.id.efectivo);
-                RadioButton paypal=(RadioButton)findViewById(R.id.paypal);
                 RadioButton tarjeta=(RadioButton)findViewById(R.id.tarjeta);
+                RadioButton paypal=(RadioButton)findViewById(R.id.paypal);
                 RadioGroup grupo=(RadioGroup)findViewById(R.id.rgroup);
 
                 boolean selected1=false;
@@ -119,10 +118,9 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_D
                 objetos.putBoolean("boolean3",selected3);
                 objetos.putString("xbox",cajaxbox.getText().toString());
 
-                if(grupo.getCheckedRadioButtonId()==R.id.efectivo){
-                    objetos.putString("grupo",efectivo.getText().toString());
+                if(grupo.getCheckedRadioButtonId()==R.id.tarjeta){
+                    objetos.putString("grupo",tarjeta.getText().toString());
                 }else {
-                    objetos.putString("grupo", tarjeta.getText().toString());
                     objetos.putString("grupo", paypal.getText().toString());
                 }
 
@@ -133,7 +131,7 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_D
                 FragmentTransaction transaction =fragmentmanager.beginTransaction();
                 Fragment_Dinamico fragment= new Fragment_Dinamico();
                 fragment.setArguments(objetos);
-                transaction.add(R.id.activity_pantalla__aplicacion,fragment);
+                transaction.add(R.id.activity_aplicacion,fragment);
                 transaction.commit();
             }
         });
