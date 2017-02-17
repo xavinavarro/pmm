@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_pantalla__registro"
+    android:id="@+id/activity_registro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@color/azull"
+    android:background="@color/verdef"
     tools:context="com.example.xavin.miproyectoxavinavarro.Pantalla_Registro"
     android:weightSum="1">
 
@@ -19,7 +19,7 @@
         android:textAlignment="center"
         android:textSize="80px"
         android:textColor="@color/amarillo"
-        android:text="REGISTRATE"
+        android:text="REGISTRO"
         android:layout_weight="0.24" />
 
     <TextView
@@ -42,7 +42,7 @@
 
         android:inputType="textPersonName"
         android:hint="User"
-        android:id="@+id/registro_usuario"
+        android:id="@+id/r_usuario"
         android:layout_marginBottom="15dp" />
 
     <TextView
@@ -61,24 +61,24 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_gravity="center"
-        android:hint="Contraseña"
+        android:hint="Password"
         android:textColorHint="@color/colorAccent"
         android:textColor="@color/colorAccent"
         android:inputType="textPassword"
-        android:id="@+id/registro_contraseña"
+        android:id="@+id/r_contraseña"
         android:layout_marginBottom="50dp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:text="REGISTRAR"
-        android:id="@+id/registro"
+        android:text="Registrarse"
+        android:id="@+id/register"
         android:layout_gravity="center"
         android:layout_height="wrap_content" />
 
     <Button
     android:layout_width="wrap_content"
     android:text="VOLVER"
-    android:id="@+id/volver_login"
+    android:id="@+id/volver"
     android:layout_gravity="center"
     android:layout_height="wrap_content" />
 </LinearLayout>

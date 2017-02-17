@@ -5,12 +5,12 @@
     android:layout_marginTop="20dp">
 
     <TextView
-        android:id="@+id/texto1"
+        android:id="@+id/restultado1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="6pt" />
 
-    <Button android:id="@+id/boton1"
+    <Button android:id="@+id/botonm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buscar Noticias" />

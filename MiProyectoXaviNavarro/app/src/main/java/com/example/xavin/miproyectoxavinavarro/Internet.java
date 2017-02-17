@@ -27,14 +27,13 @@ public class Internet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internet);
 
-        mostrar = (Button) findViewById(R.id.boton1);
-        resultado = (TextView) findViewById(R.id.texto1);
+        mostrar = (Button) findViewById(R.id.botonm);
+        resultado = (TextView) findViewById(R.id.restultado1);
 
-        final String url = "www.game.es";
+        final String url = "http://www.game.es";
 
         mostrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
                 new TareaHttpAsincrona().execute(url);
             }
         });
@@ -43,7 +42,6 @@ public class Internet extends AppCompatActivity {
     public  class TareaHttpAsincrona extends AsyncTask<String, String, String> {
 
         private void comprobarConexionInternet(){
-
             ConnectivityManager conectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 
             if (conectivityManager != null) {
@@ -52,12 +50,12 @@ public class Internet extends AppCompatActivity {
                 if (info != null) {
                     for (int i = 0; i < info.length; i++) {
                         if (info[i].getState() == NetworkInfo.State.CONNECTED)
-                            Toast.makeText(Internet.this, "Conexion a Internet exitosa", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Internet.this, "Conexion a Internet realizada con exito", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
             else
-                Toast.makeText(Internet.this, "Fallo en conexiÃ³n a Internet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Internet.this, "Fallo en la conexion a Internet", Toast.LENGTH_SHORT).show();
         }
 
         protected void onPreExecute(){
@@ -65,16 +63,13 @@ public class Internet extends AppCompatActivity {
         }
 
         protected String doInBackground(String... params) {
-
             HttpURLConnection httpURLConnection = null;
             String salida = "";
-
             try {
                 URL url = new URL(params[0]);
                 httpURLConnection = (HttpURLConnection) url.openConnection();
-
-                httpURLConnection.setReadTimeout(10000);
-                httpURLConnection.setConnectTimeout(15000);
+                httpURLConnection.setReadTimeout(20000);
+                httpURLConnection.setConnectTimeout(25000);
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.connect();
@@ -85,7 +80,6 @@ public class Internet extends AppCompatActivity {
 
                     int i, j;
                     String linea = bufferedReader.readLine();
-
                     while (linea != null) {
                         if (linea.contains("<title>")) {
                             i = linea.indexOf("<title>") + 16;
@@ -98,11 +92,10 @@ public class Internet extends AppCompatActivity {
                     bufferedReader.close();
                     inputStream.close();
                 }
-                //  publishProgress(salida);
                 return(salida);
             }
             catch(Exception e){
-                salida= "ExcepciÃ³n: " + e.getMessage();
+                salida= "Excepción: " + e.getMessage();
             }
             finally {
                 httpURLConnection.disconnect();
@@ -114,4 +107,3 @@ public class Internet extends AppCompatActivity {
         }
     }
 }
-

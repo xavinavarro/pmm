@@ -6,18 +6,18 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/juego_titulo"
+        android:id="@+id/titulojuego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="17dp" />
 
     <TextView
-        android:id="@+id/juego_genero"
+        android:id="@+id/genero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
-        android:id="@+id/juego_precio"
+        android:id="@+id/precio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

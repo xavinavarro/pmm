@@ -12,8 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BDUsuarios clients;
-
+    private BDClients bdClients;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,18 +20,18 @@ public class MainActivity extends AppCompatActivity {
 
         Button entrar= (Button)findViewById(R.id.Entrar);
         Button formulario= (Button)findViewById(R.id.ir_a_registro);
-        final EditText verificar_usuario=(EditText)findViewById(R.id.verificar_usuario);
-        final EditText verificar_contraseña=(EditText)findViewById(R.id.verificar_contraseña);
+        final EditText ver_user=(EditText)findViewById(R.id.ver_user);
+        final EditText ver_password=(EditText)findViewById(R.id.ver_password);
 
-        clients = new BDUsuarios(this, "Usuarios", null, 1);
+        bdClients = new BDClients(this, "Usuarios", null, 1);
 
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SQLiteDatabase bd = clients.getWritableDatabase();
+                SQLiteDatabase bd = bdClients.getWritableDatabase();
 
-                String usuario=verificar_usuario.getText().toString();
-                String contraseña=verificar_contraseña.getText().toString();
+                String usuario=ver_user.getText().toString();
+                String contraseña=ver_password.getText().toString();
 
                 Cursor fila=bd.rawQuery("SELECT usuario,password FROM Usuarios WHERE usuario='"+usuario+"' and password='"+contraseña+"'",null);
 
@@ -41,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
                     String pass = fila.getString(1);
 
                     if (usuario.equals(usu)&&contraseña.equals(pass)) {
+
                         Intent adelante= new Intent(MainActivity.this,Pantalla_Aplicacion.class);
+                        adelante.putExtra("usuario", usu);
                         startActivity(adelante);
                     }else {
                         Toast.makeText(getApplicationContext(),"completado",Toast.LENGTH_LONG).show();
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
         formulario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

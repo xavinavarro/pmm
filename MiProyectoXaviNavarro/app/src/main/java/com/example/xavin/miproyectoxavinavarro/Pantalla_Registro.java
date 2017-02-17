@@ -10,36 +10,32 @@ import android.widget.EditText;
 
 public class Pantalla_Registro extends AppCompatActivity {
 
-    private BDUsuarios cliBDh;
+    private BDClients bdClients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla_registro);
+        setContentView(R.layout.activity_registro);
 
-        Button registrarse=(Button)findViewById(R.id.registro);
-        Button volver_login=(Button)findViewById(R.id.volver_login);
-        final EditText registro_usuario=(EditText)findViewById(R.id.registro_usuario);
-        final EditText registro_contraseña=(EditText)findViewById(R.id.registro_contraseña);
+        final EditText r_usuario=(EditText)findViewById(R.id.r_usuario);
+        final EditText r_contraseña=(EditText)findViewById(R.id.r_contraseña);
+        Button register=(Button)findViewById(R.id.register);
+        Button volver=(Button)findViewById(R.id.volver);
 
-        //Abrimos la base de datos en modo escritura
-        cliBDh = new BDUsuarios(this, "Usuarios", null, 1);
+        bdClients = new BDClients(this, "Usuarios", null, 1);
 
-        registrarse.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //se guarda los datos del registro en la base de datos de USUARIOS  Y CONTRASEÑAS
-
-                //Obtenemos referencia a la base de datos para poder modificarla.
-                SQLiteDatabase bd = cliBDh.getWritableDatabase();
-                bd.execSQL("INSERT INTO Usuarios (usuario, password) VALUES ('"+registro_usuario.getText().toString()+"','"+registro_contraseña.getText().toString()+"')");
+                SQLiteDatabase bd = bdClients.getWritableDatabase();
+                bd.execSQL("INSERT INTO Usuarios (usuario, password) VALUES ('"+r_usuario.getText().toString()+"','"+r_contraseña.getText().toString()+"')");
                 bd.close();
                 Intent volver= new Intent(Pantalla_Registro.this,MainActivity.class);
                 startActivity(volver);
             }
         });
 
-        volver_login.setOnClickListener(new View.OnClickListener() {
+        volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent retornar= new Intent(Pantalla_Registro.this,MainActivity.class);

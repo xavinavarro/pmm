@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.OnFragmentInteractionListener {
+public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_Dinamico.OnFragmentInteractionListener {
 
     private Juegos[]listado;
     public ArrayList<Juegos> juegos= new ArrayList<Juegos>();
@@ -35,20 +35,19 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla_aplicacion);
-
         final Button boton_comprar=(Button)findViewById(R.id.boton_comprar);
+        setContentView(R.layout.activity_aplicacion);
 
-        BDUsuarios cliBDh = new BDUsuarios(this, "Usuarios", null, 1);
+        BDClients bdClients = new BDClients(this, "Usuarios", null, 1);
+        SQLiteDatabase bd = bdClients.getWritableDatabase();
 
-        SQLiteDatabase bd = cliBDh.getWritableDatabase();
-
-        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Spiderman 3','aventuras','29.99')");
-        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('World Of Warcraft','RPG,aventuras','14.99')");
-        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Rocket League','Futbol, Coches, Conducción','14.99')");
-        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('DooM','Shooter','59.99')");
-        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Counter Strike: Global Offensive','Shooter','14.99')");
-        bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Need for Speed','Conduccion','44.99')");
+        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Spiderman 3','aventuras','29.99')");
+        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('World Of Warcraft','RPG,aventuras','15.99')");
+        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Rocket League','Futbol, Coches, Conducción','11.99')");
+        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('DooM','Shooter','59.99')");
+        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Counter Strike: Global Offensive','Shooter','14.99')");
+        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Need for Speed','Conduccion','44.99')");
+        //bd.execSQL("INSERT INTO Juegos (Titulo, Genero, Precio) VALUES ('Candy Crush','Entretenimiento','4.99')");
 
         Toast.makeText(getApplicationContext(),"completado",Toast.LENGTH_LONG).show();
 
@@ -57,11 +56,10 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.
         listado=new Juegos[c.getCount()];
         int i=0;
         if (c.moveToFirst()) {
-
             do {
                 String titulo = c.getString(0);
                 String genero = c.getString(1);
-                Double precio=c.getDouble(2);
+                Double precio = c.getDouble(2);
 
                 listado[i]= new Juegos(titulo,genero,precio);
                 i++;
@@ -71,16 +69,13 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.
         AdaptadorJuegos adaptador = new AdaptadorJuegos(this);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setAdapter(adaptador);
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView arg0, View arg1, int position, long id) {
                 String mensaje = "Titulo: " + listado[position].getTitulo() + ", Genero: " + listado[position].getGenero()+ ", Precio: " +listado[position].getPrecio();
                 Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
             }
-
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -90,49 +85,53 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.
             public void onClick(View view) {
 
                 Bundle objetos= new Bundle();
-
                 Juegos datos= new Juegos(listado[spinner.getSelectedItemPosition()].getTitulo(),
                         listado[spinner.getSelectedItemPosition()].getGenero(),
                         listado[spinner.getSelectedItemPosition()].getPrecio());
                 objetos.putSerializable("informacion",datos);
 
-                CheckBox caja1=(CheckBox)findViewById(R.id.caja_pc);
-                CheckBox caja2=(CheckBox)findViewById(R.id.caja_play);
-                CheckBox caja3=(CheckBox)findViewById(R.id.caja_xbox);
-                RadioButton efectivo=(RadioButton)findViewById(R.id.pago_efectivo);
-                RadioButton tarjeta=(RadioButton)findViewById(R.id.pago_tarjeta);
-                RadioGroup grupo=(RadioGroup)findViewById(R.id.radiogroup);
+                CheckBox cajapc=(CheckBox)findViewById(R.id.pc);
+                CheckBox cajaps=(CheckBox)findViewById(R.id.playstation);
+                CheckBox cajaxbox=(CheckBox)findViewById(R.id.xbox);
+                RadioButton efectivo=(RadioButton)findViewById(R.id.efectivo);
+                RadioButton paypal=(RadioButton)findViewById(R.id.paypal);
+                RadioButton tarjeta=(RadioButton)findViewById(R.id.tarjeta);
+                RadioGroup grupo=(RadioGroup)findViewById(R.id.rgroup);
 
                 boolean selected1=false;
                 boolean selected2=false;
                 boolean selected3=false;
-                if(caja1.isChecked()){
+                if(cajapc.isChecked()){
                     selected1=true;
                 }
                 objetos.putBoolean("boolean1",selected1);
-                objetos.putString("caja_pc",caja1.getText().toString());
+                objetos.putString("pc",cajapc.getText().toString());
 
-                if(caja2.isChecked()){
+                if(cajaps.isChecked()){
                     selected2=true;
                 }
                 objetos.putBoolean("boolean2",selected2);
-                objetos.putString("caja_play",caja2.getText().toString());
+                objetos.putString("playstation",cajaps.getText().toString());
 
-                if(caja3.isChecked()){
+                if(cajaxbox.isChecked()){
                     selected3=true;
                 }
                 objetos.putBoolean("boolean3",selected3);
-                objetos.putString("caja_xbox",caja3.getText().toString());
+                objetos.putString("xbox",cajaxbox.getText().toString());
 
-                if(grupo.getCheckedRadioButtonId()==R.id.pago_efectivo){
+                if(grupo.getCheckedRadioButtonId()==R.id.efectivo){
                     objetos.putString("grupo",efectivo.getText().toString());
                 }else {
                     objetos.putString("grupo", tarjeta.getText().toString());
+                    objetos.putString("grupo", paypal.getText().toString());
                 }
+
+                String usu= getIntent().getStringExtra("usuario");
+                objetos.putSerializable("usuario",usu);
 
                 FragmentManager fragmentmanager =getFragmentManager();
                 FragmentTransaction transaction =fragmentmanager.beginTransaction();
-                FDinamico fragment= new FDinamico();
+                Fragment_Dinamico fragment= new Fragment_Dinamico();
                 fragment.setArguments(objetos);
                 transaction.add(R.id.activity_pantalla__aplicacion,fragment);
                 transaction.commit();
@@ -140,11 +139,10 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.
         });
     }
 
-    public boolean onCreateOptionsMenu (Menu menu) {
-        MenuInflater inflate = getMenuInflater();
-        inflate.inflate(R.menu.menu, menu);
-        return true;
+    @Override
+    public void onFragmentInteraction(Uri uri) {
     }
+
     public boolean onOptionsItemSelected (MenuItem item){
         switch (item.getItemId()){
             case R.id.menu_acerca:
@@ -159,9 +157,13 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.
                 return super.onOptionsItemSelected(item);
         }
     }
-    @Override
-    public void onFragmentInteraction(Uri uri) {
+    public boolean onCreateOptionsMenu (Menu menu) {
+        MenuInflater inflate = getMenuInflater();
+        inflate.inflate(R.menu.menu, menu);
+        return true;
     }
+
+
 
     public class AdaptadorJuegos extends ArrayAdapter {
         Activity context;
@@ -176,12 +178,12 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements FDinamico.
         public View getView(int i, View convertView, ViewGroup parent) {
             LayoutInflater inflater = context.getLayoutInflater();
             View item = inflater.inflate(R.layout.juegos, null);
-            TextView tit = (TextView) item.findViewById(R.id.juego_titulo);
+            TextView tit = (TextView) item.findViewById(R.id.titulojuego);
             tit.setText(listado[i].getTitulo());
-            TextView gen = (TextView) item.findViewById(R.id.juego_genero);
+            TextView gen = (TextView) item.findViewById(R.id.genero);
             gen.setText(listado[i].getGenero());
 
-            TextView pre = (TextView) item.findViewById(R.id.juego_precio);
+            TextView pre = (TextView) item.findViewById(R.id.precio);
             pre.setText(String.valueOf(listado[i].getPrecio()));
             return (item);
         }
