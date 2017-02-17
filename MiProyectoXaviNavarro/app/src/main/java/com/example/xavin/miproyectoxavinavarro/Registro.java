@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Pantalla_Registro extends AppCompatActivity {
+public class Registro extends AppCompatActivity {
 
     private BDClients bdClients;
 
@@ -30,7 +30,7 @@ public class Pantalla_Registro extends AppCompatActivity {
                 SQLiteDatabase bd = bdClients.getWritableDatabase();
                 bd.execSQL("INSERT INTO Usuarios (usuario, password) VALUES ('"+r_usuario.getText().toString()+"','"+r_contraseña.getText().toString()+"')");
                 bd.close();
-                Intent volver= new Intent(Pantalla_Registro.this,MainActivity.class);
+                Intent volver= new Intent(Registro.this,MainActivity.class);
                 startActivity(volver);
             }
         });
@@ -38,7 +38,7 @@ public class Pantalla_Registro extends AppCompatActivity {
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent retornar= new Intent(Pantalla_Registro.this,MainActivity.class);
+                Intent retornar= new Intent(Registro.this,MainActivity.class);
                 startActivity(retornar);
             }
         });

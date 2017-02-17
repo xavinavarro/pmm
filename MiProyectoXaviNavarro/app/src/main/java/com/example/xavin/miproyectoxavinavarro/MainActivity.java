@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (usuario.equals(usu)&&contraseña.equals(pass)) {
 
-                        Intent adelante= new Intent(MainActivity.this,Pantalla_Aplicacion.class);
+                        Intent adelante= new Intent(MainActivity.this,Aplicacion.class);
                         adelante.putExtra("usuario", usu);
                         startActivity(adelante);
                     }else {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         formulario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ventana = new Intent(MainActivity.this,Pantalla_Registro.class);
+                Intent ventana = new Intent(MainActivity.this,Registro.class);
                 startActivity(ventana);
             }
         });

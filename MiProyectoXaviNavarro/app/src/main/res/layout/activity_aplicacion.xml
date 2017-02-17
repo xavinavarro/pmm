@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/fondo"
-    tools:context="com.example.xavin.miproyectoxavinavarro.Pantalla_Aplicacion">
+    tools:context="com.example.xavin.miproyectoxavinavarro.Aplicacion">
 
     <CheckBox
         android:text="PlayStation 4"

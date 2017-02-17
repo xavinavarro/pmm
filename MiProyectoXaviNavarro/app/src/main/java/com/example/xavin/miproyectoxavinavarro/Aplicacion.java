@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_Dinamico.OnFragmentInteractionListener {
+public class Aplicacion extends AppCompatActivity implements Fragment_Dinamico.OnFragmentInteractionListener {
 
     private Juegos[]listado;
     public ArrayList<Juegos> juegos= new ArrayList<Juegos>();
@@ -80,7 +80,7 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_D
         });
 
         bd.close();
-        boton_comprar.setOnClickListener(new View.OnClickListener() {
+        boton_comprar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
@@ -129,7 +129,7 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_D
 
                 FragmentManager fragmentmanager =getFragmentManager();
                 FragmentTransaction transaction =fragmentmanager.beginTransaction();
-                Fragment_Dinamico fragment= new Fragment_Dinamico();
+                Fragment_Dinamico fragment = new Fragment_Dinamico();
                 fragment.setArguments(objetos);
                 transaction.add(R.id.activity_aplicacion,fragment);
                 transaction.commit();
@@ -137,29 +137,31 @@ public class Pantalla_Aplicacion extends AppCompatActivity implements Fragment_D
         });
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
+
+    public boolean onCreateOptionsMenu (Menu menu) {
+        MenuInflater inflate = getMenuInflater();
+        inflate.inflate(R.menu.menu, menu);
+        return true;
     }
 
     public boolean onOptionsItemSelected (MenuItem item){
         switch (item.getItemId()){
             case R.id.menu_acerca:
-                Intent acerca = new Intent(Pantalla_Aplicacion.this, Acerca.class);
+                Intent acerca = new Intent(Aplicacion.this, Acerca.class);
                 startActivity(acerca);
                 return true;
             case R.id.menu_internet:
-                Intent internet = new Intent(Pantalla_Aplicacion.this, Internet.class);
+                Intent internet = new Intent(Aplicacion.this, Internet.class);
                 startActivity(internet);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-    public boolean onCreateOptionsMenu (Menu menu) {
-        MenuInflater inflate = getMenuInflater();
-        inflate.inflate(R.menu.menu, menu);
-        return true;
+    @Override
+    public void onFragmentInteraction(Uri uri) {
     }
+
 
 
 

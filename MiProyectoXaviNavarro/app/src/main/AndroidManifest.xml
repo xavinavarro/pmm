@@ -21,8 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Pantalla_Aplicacion" />
-        <activity android:name=".Pantalla_Registro" />
+        <activity android:name=".Aplicacion" />
+        <activity android:name=".Registro" />
         <activity android:name=".Internet" />
         <activity android:name=".Acerca"></activity>
 

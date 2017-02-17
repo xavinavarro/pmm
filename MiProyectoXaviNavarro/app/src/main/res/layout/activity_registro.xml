@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:background="@color/verdef"
-    tools:context="com.example.xavin.miproyectoxavinavarro.Pantalla_Registro"
+    tools:context="com.example.xavin.miproyectoxavinavarro.Registro"
     android:weightSum="1">
 
     <TextView
