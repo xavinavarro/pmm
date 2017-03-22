@@ -23,7 +23,6 @@ public class BDClients extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase bd, int versionAnterior, int versionNueva) {
         bd.execSQL(consulta1);
-        bd.execSQL(consulta2);
-        bd.execSQL(consulta3);
+
     }
 }

@@ -80,9 +80,10 @@ public class Aplicacion extends AppCompatActivity implements Fragment_Dinamico.O
         });
 
         bd.close();
+
         boton_comprar.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
 
                 Bundle objetos= new Bundle();
                 Juegos datos= new Juegos(listado[spinner.getSelectedItemPosition()].getTitulo(),

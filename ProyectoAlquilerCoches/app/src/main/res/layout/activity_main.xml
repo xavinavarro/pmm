@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.xavin.proyectoalquilercoches.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALQUILER DE COCHES"
+        android:id="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/fiesta1"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/caja_gps" />
+
+    <CheckBox
+        android:text="GPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/caja_gps"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/caja_aire"
+        android:layout_toEndOf="@+id/boton_calcular" />
+
+    <RadioGroup
+        android:id="@+id/radio_grupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/caja_gps"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:id="@+id/radio_sin_seguro"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/caja_aire"
+            android:layout_alignEnd="@+id/caja_aire"
+            android:layout_marginBottom="60dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginLeft="200dp"
+            android:text="SIN SEGURO" />
+
+    </RadioGroup>
+
+    <Button
+        android:text="CALCULAR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:id="@+id/boton_calcular"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="42dp" />
+
+    <CheckBox
+        android:text="AIRE ACONDICIONADO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/caja_aire"
+        android:layout_above="@+id/caja_radio"
+        android:layout_alignStart="@+id/caja_radio" />
+
+    <EditText
+        android:id="@+id/texto_horas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/boton_calcular"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="19dp"
+        android:hint="INTRODUCE NUMERO DE HORAS"
+        android:inputType="number" />
+
+    <CheckBox
+        android:text="RADIO/DVD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/caja_radio"
+        android:layout_marginStart="12dp"
+        android:layout_above="@+id/texto_horas"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="17dp" />
+
+    <RadioButton
+        android:id="@+id/radio_riesgo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:text="SEGURO TODO RIESGO"
+        android:layout_alignTop="@+id/radio_grupo"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
