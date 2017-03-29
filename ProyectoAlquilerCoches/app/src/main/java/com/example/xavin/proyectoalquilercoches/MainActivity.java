@@ -40,15 +40,11 @@ public class MainActivity extends AppCompatActivity {
             new Coches("Ford","Fiesta","40",Megan[aleatorio])
     };
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //CREAMOS LA LISTA DE OBJETOS DEL SPINNER
         final RadioButton radio1 =(RadioButton)findViewById(R.id.radio_sin_seguro);
         final RadioButton radio2 =(RadioButton)findViewById(R.id.radio_riesgo);
         final RadioGroup grupo =(RadioGroup)findViewById(R.id.radio_grupo);
@@ -59,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
         final CheckBox caja_radio = (CheckBox)findViewById(R.id.caja_radio);
 
         final Button boton = (Button)findViewById(R.id.boton_calcular);
-
-
 
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,19 +97,16 @@ public class MainActivity extends AppCompatActivity {
 
                 String nombre;
 
-
                 TextView radio1 = (TextView) findViewById(R.id.radio_sin_seguro);
                 radio1.setText(radio1.getText());
                 nombre=radio1.getText().toString();
                 ventana.putExtra("grupo", nombre);
-
 
                 if (grupo.getCheckedRadioButtonId() == R.id.radio_riesgo) {
                     TextView radio2 = (TextView) findViewById(R.id.radio_riesgo);
                     radio2.setText((radio2.getText()));
                     nombre=radio2.getText().toString();
                     ventana.putExtra("grupo", nombre);
-
                 }
                 //Precio del peso y pasarlo
                 double preciohora = 0;
@@ -201,10 +192,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent ajustes = new Intent(MainActivity.this, PantallaOpciones.class);
                 startActivity(ajustes);
                 return true;
-            case R.id.menu_obtener_preferencias:
-                Intent obtener = new Intent(MainActivity.this, SettingsFragment.class);
-                startActivity(obtener);
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -222,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             LayoutInflater inflater=context.getLayoutInflater();
             final View item = inflater.inflate(R.layout.activity_factura,null);
 
-//HAY QUE PASAR LAS ETIQUETA QUE SE USAN EN EL LAYOUT DE FACTURA Y RELACIONARLAS
+    //PASAR ETIQUETAS QUE SE USAN EN EL LAYOUT DE FACTURA Y RELACIONARLAS
             TextView marca = (TextView)item.findViewById(R.id.resultado_marca);
             TextView modelo = (TextView)item.findViewById(R.id.resultado_modelo);
             final TextView precio = (TextView)item.findViewById(R.id.resultado_precio);

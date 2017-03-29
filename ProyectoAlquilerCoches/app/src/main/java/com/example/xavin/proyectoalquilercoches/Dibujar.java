@@ -36,7 +36,6 @@ public class Dibujar extends AppCompatActivity {
             Paint linea_trasera = new Paint();
             Paint curva = new Paint();
 
-
             rueda1.setColor(Color.BLACK);
             rueda1.setStrokeWidth(15);
             rueda1.setStyle(Paint.Style.STROKE);
@@ -85,10 +84,8 @@ public class Dibujar extends AppCompatActivity {
 
             if(accion=="move"){
                 path.lineTo(x,y);
-
             }
             canvas.drawPath(path,tactil);
-
         }
         //devolver distintos valores(si estamos en la pantalla o no)
         public boolean onTouchEvent(MotionEvent e){
