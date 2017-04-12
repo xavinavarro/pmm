@@ -17,9 +17,9 @@ public class SpinnerPersona extends AppCompatActivity
 {
     private Persona[] datos = new Persona[]
             {
-                    new Persona("Jorge","hombre",19),
-                    new Persona("Carlos","hombre",21),
-                    new Persona("Susana","mujer",22)
+                    new Persona("Xavi","Hombre",20),
+                    new Persona("Adrian","Hombre",22),
+                    new Persona("Miguel","Hombre",23)
             };
 
     @Override
@@ -50,25 +50,6 @@ public class SpinnerPersona extends AppCompatActivity
         @Override
         public View getView(int position, View convertView, ViewGroup parent)
         {
-
-           /*ViewHolder holder;
-
-           if (view == null)
-            {
-                LayoutInflater inflater = context.getLayoutInflater();
-               View view = inflater.inflate(R.layout.desplegable,null);
-               holder = new ViewHolder();
-                holder.nombre = (TextView) view.findViewById(R.id.txtViewNombre);
-                holder.sexo = (TextView) view.findViewById(R.id.txtViewSexo);
-                holder.edad = (TextView) view.findViewById(R.id.txtViewEdad);
-                view.setTag(holder);
-            }
-            else {
-                holder = (ViewHolder) view.getTag();
-            }
-             holder.nombre.setText(datos[position].getNombre());
-            holder.sexo.setText(datos[position].getSexo());
-            holder.edad.setText(datos[position].getEdad());*/
 
             LayoutInflater inflater = context.getLayoutInflater();
             View view = inflater.inflate(R.layout.desplegable,null);

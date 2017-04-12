@@ -28,14 +28,11 @@ public class MyListaObjetos extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_lista_objetos);
 
-
         miLista = (ListView) findViewById(R.id.listView);
 
         AdaptadorTitulares adaptadorTitulares = new AdaptadorTitulares(this);
 
         miLista.setAdapter(adaptadorTitulares);
-
-
 
     }
     class AdaptadorTitulares extends ArrayAdapter
@@ -66,8 +63,6 @@ public class MyListaObjetos extends AppCompatActivity
 
             return view;
         }
-
-
     }
 }
 

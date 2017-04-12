@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-   /* class MiDibujo extends View
+   class MiDibujo extends View
     {
         public MiDibujo(Context context) {
             super(context);
@@ -49,16 +49,16 @@ public class MainActivity extends AppCompatActivity {
             cuadradoVerde.setStyle(Paint.Style.STROKE);
 
             cuadradoAmarillo.setColor(Color.YELLOW);
-            cuadradoAmarillo.setStrokeWidth(100);super(context, attrs);
+            cuadradoAmarillo.setStrokeWidth(100);
+
             cuadradoAmarillo.setStyle(Paint.Style.STROKE);
 
             cuadradoCentral.setColor(Color.CYAN);
             cuadradoCentral.setStrokeWidth(15);
             cuadradoCentral.setStyle(Paint.Style.STROKE);
 
-
             circulo.setColor(Color.MAGENTA);
-            circulo.setStrokeWidth(20);super(context, attrs);
+            circulo.setStrokeWidth(20);
             circulo.setStyle(Paint.Style.STROKE);
 
             canvas.drawPoint(200,200,cuadradoRojo);
@@ -67,15 +67,14 @@ public class MainActivity extends AppCompatActivity {
             canvas.drawPoint(200,800,cuadradoVerde);
             canvas.drawPoint(890,800,cuadradoAmarillo);
             canvas.drawPoint(550,500,cuadradoCentral);
-super(context, attrs);
-            //OTROS...
 
+            //OTROS...
             Paint arco = new Paint();
 
             arco.setColor(Color.WHITE);
             arco.setStrokeWidth(100);
             arco.setStyle(Paint.Style.STROKE);
         }
-    } */
+    }
 }
 

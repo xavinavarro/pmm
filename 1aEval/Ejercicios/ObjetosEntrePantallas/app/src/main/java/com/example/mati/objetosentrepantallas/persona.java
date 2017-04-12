@@ -17,6 +17,6 @@ public class persona extends AppCompatActivity {
         age = (EditText) findViewById(R.id.age);
         button = (Button) findViewById(R.id.button);
 
-        Button.setOnClickListener()
+        Button.setOnClickListener();
     }
 }

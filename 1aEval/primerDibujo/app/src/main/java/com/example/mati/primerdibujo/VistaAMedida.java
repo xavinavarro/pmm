@@ -9,9 +9,6 @@ import android.graphics.drawable.shapes.RectShape;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by mati on 7/11/16.
- */
 public class VistaAMedida extends View
 {
     private ShapeDrawable miDrawable;
@@ -76,6 +73,4 @@ public class VistaAMedida extends View
         canvas.drawPoint(550,500,cuadradoCentral);
 
     }
-
-
 }
