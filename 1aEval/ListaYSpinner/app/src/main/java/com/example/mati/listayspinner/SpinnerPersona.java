@@ -71,7 +71,6 @@ public class SpinnerPersona extends AppCompatActivity
             View view = getView(position, convertView, parent);
 
             return view;
-
         }
     }
 }

@@ -1,8 +1,5 @@
 package com.example.mati.listayspinner;
 
-/**
- * Created by mati on 19/10/16.
- */
 public class Persona
 {
     private String nombre;

@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this,SpinnerPersona.class);
                 startActivity(intent);
                 break;
-
-
         }
     }
 }
